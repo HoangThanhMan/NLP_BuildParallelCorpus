@@ -184,10 +184,10 @@ def backtrace_levenshtein(dp, str1, str2):
         if dp[i][j] == dp[i - 1][j - 1] + (2 if intersection_len == 0 else 0):
             if intersection_len == 0:
                 color[current_char1] = red
-            elif intersection_len > 1:
-                color[current_char1] = blue
-            else:
+            elif intersection_len >= 1:
                 color[current_char1] = black
+            # else:
+            #     color[current_char1] = black
             i -= 1
             j -= 1
         elif dp[i][j] == dp[i - 1][j] + 1:
