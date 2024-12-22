@@ -1,0 +1,6 @@
+fitz==0.0.1.dev2
+natsort==8.4.0
+openpyxl==3.1.5
+Pillow==11.0.0
+Requests==2.32.3
+XlsxWriter==3.2.0
