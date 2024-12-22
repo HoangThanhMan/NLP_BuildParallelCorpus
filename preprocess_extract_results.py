@@ -2,7 +2,7 @@ import json
 import re
 
 dir_path = "data"
-quocngu_file_name = "quocngu_text.json"
+quocngu_file_name = "HDTGDS_extract_results.json"
 output_file_name = "HDTGDS_clean.quocngu.json"
 
 with open(f"{dir_path}/{quocngu_file_name}", "r", encoding = 'utf-8') as quocngu_file:

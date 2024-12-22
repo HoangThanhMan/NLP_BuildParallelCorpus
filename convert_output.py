@@ -7,9 +7,9 @@ from xlsxwriter import Workbook
 from typing import List, Dict, Any, Tuple
 
 INPUT_FILE_PATH_HAN_NOM_CLC = "data/HDTGDS_clean.hannom.clc.json"
-INPUT_FILE_PATH_HAN_NOM_KANDIANGUJI = "data/HDTGDS_clean.hannom.kandianguji.json"
+INPUT_FILE_PATH_HAN_NOM_KANDIANGUJI = "data/HDTGDS_clean.hannom.json"
 INPUT_FILE_PATH_QUOC_NGU = "data/HDTGDS_clean.quocngu.json"
-OUTPUT_FILE_PATH = "data/output_HDTGDS.xlsx"
+OUTPUT_FILE_PATH = "result/result.xlsx"
 QUOCNGU_SINONOM_DIC_FILE = "data/dic/QuocNgu_SinoNom_Dic.xlsx"
 SINONOM_SIMILAR_DIC_FILE = "data/dic/SinoNom_similar_Dic.xlsx"
 
@@ -313,8 +313,6 @@ def alignments(ocr_datas, extract_datas):
                 "image_box": ocr_data[i]['position']
             })
 
-            print("ocr_text: ", ocr_text)
-            print("extract_data: ", extract_data[best_match_idx]['quocngu'])
             # Cập nhật chỉ số
             i += 1
             j = best_match_idx + 1
@@ -333,11 +331,6 @@ def alignments(ocr_datas, extract_datas):
             "data": data
         })
 
-        print("\n")
-
-    with open("data/result.json", "w", encoding="utf-8") as file:
-        json.dump(results, file, ensure_ascii=False, indent=4)
-
     return results
 
 def process_data():
@@ -345,6 +338,7 @@ def process_data():
     quoc_ngu_data = read_input_file_quoc_ngu(INPUT_FILE_PATH_QUOC_NGU)
     results = alignments(han_nom_data, quoc_ngu_data)
     row = 1
+    print("[+] Writing data to excel file...")
     for result in results:
         cnt = 1
         for data in result['data']:
@@ -362,6 +356,7 @@ def process_data():
             cnt += 1
 
     workbook.close()
+    print("[+] Done! Open the file result.xlsx to see the results.")
 
 def main():
     global workbook, worksheet, qn_sino_dic, sino_similar_dic

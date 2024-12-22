@@ -1,7 +1,7 @@
 import json
 
-input_file_path = "data/kandianguji_ocr_result.hannom.json"
-output_file_path = "data/HDTGDS_clean.hannom.kandianguji.json"
+input_file_path = "data/HDTGDS_ocr_result.hannom.json"
+output_file_path = "data/HDTGDS_clean.hannom.json"
 
 with open(input_file_path, "r", encoding="utf-8") as json_file:
     ocr_data = json.load(json_file)

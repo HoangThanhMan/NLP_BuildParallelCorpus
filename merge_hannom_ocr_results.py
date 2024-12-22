@@ -20,6 +20,6 @@ for file in files:
 
 new_results = natsorted(results, key=lambda x: x["file_name"])
 
-output_file_path = "data/kandianguji_ocr_result.hannom.json"
+output_file_path = "data/HDTGDS_ocr_result.hannom.json"
 with open(output_file_path, "w", encoding="utf-8") as json_file:
     json.dump(new_results, json_file, ensure_ascii=False, indent=4)

@@ -7,7 +7,7 @@ from PIL import Image
 # file path you want to extract images from
 file_path = "raw_data/HoiDongTuGiaoDanhSu.pdf"
 image_dir = "data/hannom_images"
-quocngu_file_name = "data/quocngu_text.json"
+quocngu_file_name = "data/HDTGDS_extract_results.json"
 
 # open the file
 pdf_file = fitz.open(file_path)
