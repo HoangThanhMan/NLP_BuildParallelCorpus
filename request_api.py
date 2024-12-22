@@ -9,7 +9,7 @@ from natsort import natsorted
 folder_path = "data/hannom_images"
 ocr_folder_path = "data/kandianguji_ocr"
 api_url = "https://ocr.kandianguji.com/ocr_api"
-output_file_path = "data/ocr_result.hannom.json"
+output_file_path = "data/HDTGDS_ocr_result.hannom.json"
 
 # Tạo danh sách các file trong thư mục
 files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
